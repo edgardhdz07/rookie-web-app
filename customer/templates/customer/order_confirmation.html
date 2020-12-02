@@ -1,0 +1,25 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Pedido confirmado!</h1>
+            <p>Deberás recibir un email pronto.</p>
+            <a href="{% url 'index' %}">PAGINA PRINCIPAL</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-12 text-center">
+            <h3 class="pb-3">Detalles de la orden:</h3>
+                <p style="color:#043362">Nombre<span class="pl-3">Precio</span></p>
+            {% for item in items %}
+                <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+            {% endfor %}
+            <h3> Tendrás que pagar en efectivo la siguiente cantidad </h3>
+            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
